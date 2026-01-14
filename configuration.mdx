@@ -1,0 +1,118 @@
+---
+title: Customizing Your Documentation Space
+description: Personalize your space with branding, permissions, and settings to fit your project's needs.
+---
+
+## Overview
+
+Customize Ahmad Abubakar's documentation space to match your project's identity. Apply your brand colors, manage user permissions, and configure export options. These settings ensure your space feels native to your brand while maintaining security and flexibility.
+
+<Callout kind="info">
+  Access all customization options from the `Settings` panel in your dashboard at `https://dashboard.example.com/settings`.
+</Callout>
+
+## Brand Colors and Themes
+
+Tailor the visual appearance using your brand color, `#3B82F6`. Update the theme to reflect your project's style across headers, buttons, and accents.
+
+<Steps>
+  <Step title="Access Theme Settings" icon="settings">
+    Navigate to `Settings > Branding` in the dashboard.
+  </Step>
+  <Step title="Enter Brand Color" icon="palette">
+    Input your hex code, such as `#3B82F6`.
+  </Step>
+  <Step title="Preview and Apply" icon="eye">
+    Preview changes live, then click `Apply Theme`.
+  </Step>
+</Steps>
+
+Configure advanced themes via the config file:
+
+<CodeGroup tabs="JSON,YAML">
+  ```json
+  {
+    "theme": {
+      "primaryColor": "#3B82F6",
+      "secondaryColor": "#1E40AF",
+      "fontFamily": "Inter, sans-serif"
+    }
+  }
+  ```
+  ```yaml
+  theme:
+    primaryColor: "#3B82F6"
+    secondaryColor: "#1E40AF"
+    fontFamily: "Inter, sans-serif"
+  ```
+</CodeGroup>
+
+## User Permissions and Access Levels
+
+Control who accesses your documentation. Define roles like `Admin`, `Editor`, and `Viewer` to manage read, write, and admin privileges.
+
+<Tabs>
+  <Tab title="Admin" icon="shield">
+    Full access: edit content, manage users, configure settings.
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Edit and publish docs, but cannot manage users.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access to all pages.
+  </Tab>
+</Tabs>
+
+| Role    | Read | Write | Delete | Manage Users |
+|---------|------|-------|--------|--------------|
+| Admin   | ✅   | ✅    | ✅     | ✅           |
+| Editor  | ✅   | ✅    | ❌     | ❌           |
+| Viewer  | ✅   | ❌    | ❌     | ❌           |
+
+Set permissions via API:
+
+<ParamField path="permissions" param-type="object" required="true">
+  Object defining user roles and scopes.
+</ParamField>
+
+<ParamField body="role" param-type="string" required="true">
+  Role name: `admin`, `editor`, or `viewer`.
+</ParamField>
+
+## Export Options and Backups
+
+Export your documentation as PDF, HTML, or Markdown. Schedule automatic backups to prevent data loss.
+
+<Columns cols={2}>
+  <Card title="Export Formats" icon="download" href="#export-formats">
+    Choose PDF for print, HTML for web.
+  </Card>
+  <Card title="Backup Schedules" icon="calendar" href="#backups">
+    Daily or weekly automated backups.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Backup Configuration" default-open="false">
+
+Configure backups in your settings JSON:
+
+````json
+{
+  "backups": {
+    "enabled": true,
+    "frequency": "daily",
+    "storage": "s3://your-bucket/backups",
+    "retentionDays": 30
+  }
+}
+````
+
+</Expandable>
+
+<Callout kind="tip">
+  Test exports regularly. Use `https://dashboard.example.com/backups` to verify latest snapshots.
+</Callout>
+
+## Troubleshooting Common Issues
+
+If theme changes do not apply, clear your browser cache and refresh. For permission errors, check user roles in the admin panel. Contact support via `https://dashboard.example.com/support` for persistent issues.

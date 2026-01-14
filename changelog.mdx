@@ -1,0 +1,124 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Ahmad Abubakar's documentation platform.
+---
+
+## Recent Updates
+
+Stay informed about new features, improvements, and fixes in Ahmad Abubakar's documentation platform. You receive notifications for major releases via the dashboard.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added real-time collaboration for shared documentation editing
+- Introduced customizable brand colors, starting with `#3B82F6` as the default blue
+- Enabled Markdown preview with live syntax highlighting
+
+## Bug Fixes
+
+- Fixed parsing errors in nested code blocks using four backticks
+- Resolved frontmatter validation issues with blank line detection
+- Improved special character escaping for `{` and `<` in prose
+
+## Improvements
+
+- Enhanced component rendering speed by `>30%`
+- Added accessibility attributes to all images and videos automatically
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Integrated Mermaid diagram support via code blocks (no JSX component needed)
+- Added `Update` component for changelog entries with tags like `feature` and `bugfix`
+
+## Improvements
+
+- Optimized MDX parsing rules to prevent `{` and `}` errors in text
+- Upgraded JSX attribute handling to enforce double quotes only
+
+````jsx
+// Example fix applied
+<Callout kind="info">
+  Use `{API_KEY}` for secure authentication.
+</Callout>
+````
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core MDX documentation engine with 15+ components
+- YAML frontmatter validation and H2-first heading enforcement
+- Component library including `Cards`, `Steps`, `Tabs`, and `CodeGroup`
+
+## Breaking Changes
+
+- Removed H1 support; always start with H2 headings
+
+</Update>
+
+## Upcoming Roadmap
+
+Discover what's next for Ahmad Abubakar's documentation platform. You can contribute ideas via the feedback form.
+
+<Columns cols={3}>
+  <Card title="AI Assistance" icon="zap" href="https://dashboard.example.com/roadmap/ai">
+    Auto-generate MDX pages from prompts.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="https://dashboard.example.com/roadmap/vcs">
+    Git integration for doc versioning.
+  </Card>
+  <Card title="Multi-Language" icon="globe" href="https://dashboard.example.com/roadmap/i18n">
+    Full i18n support for global teams.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Check the [dashboard](https://dashboard.example.com/changelog) weekly for beta features. Enable notifications to stay ahead.
+</Callout>
+
+## How to Stay Updated
+
+Follow these steps to track changes effectively.
+
+<Steps>
+  <Step title="Subscribe" icon="bell">
+    Visit your profile settings and enable changelog emails.
+  </Step>
+  <Step title="Watch GitHub" icon="github">
+    Star the repository at https://github.com/ahmadabubakar/docs-platform.
+  </Step>
+  <Step title="Check RSS" icon="rss">
+    Add `/changelog.xml` to your feed reader.
+  </Step>
+</Steps>
+
+<ExpandableGroup>
+  <Expandable title="How to Contribute Fixes" default-open="true">
+    Report issues using the template:
+
+````markdown
+**Issue Type:** Bug
+
+**Steps to Reproduce:**
+1. Create a page with raw `{variable}`
+2. Preview fails
+
+**Expected:** Escapes to `{variable}`
+````
+
+    Submit pull requests with tests.
+  </Expandable>
+  <Expandable title="Tag Meanings">
+    - `feature`: New functionality
+    - `bugfix`: Resolved defects
+    - `improvement`: Performance tweaks
+    - `breaking`: API changes
+  </Expandable>
+</ExpandableGroup>
